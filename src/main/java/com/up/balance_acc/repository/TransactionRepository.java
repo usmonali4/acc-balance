@@ -22,7 +22,7 @@ public class TransactionRepository {
         return tx;
     }
 
-    public Optional<Transaction> findById(UUID id) {
+    public Optional<Transaction> findById(int id) {
         return Optional.ofNullable(transactions.get(id));
     }
 

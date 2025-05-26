@@ -41,6 +41,7 @@ public class Transaction {
         this.type = type;
         this.amount = amount;
         this.currency = currency;
+        this.usdAmount = amountInUsd;
         this.timestamp = LocalDateTime.now();
     } 
 }

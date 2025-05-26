@@ -53,5 +53,20 @@ public class BalanceService {
         return balance.geTransactions();
     }
 
+    public Transaction updTransaction(int id, TransactionDTO dto){
+        Transaction tx = txRepo.findById(id)
+            .orElseThrow(() -> new RuntimeException("Transaction not found"));
+
+        Balance balance = balanceRepo.findByName(tx.getBalanceName())
+            .orElseThrow(() -> new RuntimeException("Balance not found"));
+        
+        balance.reverseTransaction(tx);
+        double amountInUsd = CurrencyService.toUSD(dto.amount, dto.currency);
+
+        tx.update(dto.type, dto.amount, dto.currency, amountInUsd);
+        balance.applyTransaction(tx);
+        return tx;
+    }
+
     
 }

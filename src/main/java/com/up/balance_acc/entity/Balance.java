@@ -41,4 +41,14 @@ public class Balance {
         }
         transactions.add(t);
     }
+
+    public void reverseTransaction(Transaction t) {
+        double amountInUsd = t.getUSDAmount();
+        if (t.getType() == TransactionType.DEPOSIT) {
+            totalAmount -= amountInUsd;
+        } else {
+            totalAmount += amountInUsd;
+        }
+        transactions.remove(t);
+    }
 }

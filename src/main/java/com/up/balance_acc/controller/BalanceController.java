@@ -14,6 +14,7 @@ import com.up.balance_acc.entity.TransactionDTO;
 import com.up.balance_acc.service.BalanceService;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -46,4 +47,8 @@ public class BalanceController {
         return ResponseEntity.ok(balanceService.allTransactions(name));
     }
 
+    @PutMapping("/transaction/{id}")
+    public ResponseEntity<Transaction> updateTransaction(@PathVariable int id, @RequestBody TransactionDTO dto){
+        return ResponseEntity.ok(balanceService.updTransaction(id, dto));
+    }
 }
