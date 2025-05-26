@@ -19,7 +19,7 @@ API Endpoints:
 POST /balances/{name}
 
 Example:
-curl -X POST http://localhost:8080/balances/boss4
+`curl -X POST http://localhost:8080/balances/main-acc`
 
 ---
 
@@ -28,7 +28,7 @@ curl -X POST http://localhost:8080/balances/boss4
 GET /balances/{name}/info
 
 Example:
-curl http://localhost:8080/balances/boss4/info
+`curl http://localhost:8080/balances/main-acc/info`
 
 ---
 
@@ -37,14 +37,15 @@ curl http://localhost:8080/balances/boss4/info
 POST /balances/{name}/transaction/add
 
 Example:
-curl -X POST http://localhost:8080/balances/boss4/transaction/add \
+```
+curl -X POST http://localhost:8080/balances/main-acc/transaction/add \
   -H "Content-Type: application/json" \
   -d '{
         "type": "DEPOSIT",
         "amount": 100.0,
         "currency": "EUR"
       }'
-
+```
 ---
 
 4. Get All Transactions
@@ -52,7 +53,7 @@ curl -X POST http://localhost:8080/balances/boss4/transaction/add \
 GET /balances/{name}/transactions
 
 Example:
-curl http://localhost:8080/balances/boss4/transactions
+`curl http://localhost:8080/balances/main-acc/transactions`
 
 ---
 
@@ -61,6 +62,7 @@ curl http://localhost:8080/balances/boss4/transactions
 PUT /balances/transaction/{id}/update
 
 Example:
+```
 curl -X PUT http://localhost:8080/balances/transaction/1/update \
   -H "Content-Type: application/json" \
   -d '{
@@ -68,7 +70,7 @@ curl -X PUT http://localhost:8080/balances/transaction/1/update \
         "amount": 50.0,
         "currency": "USD"
       }'
-
+```
 Note: Replace 1 with the actual transaction ID returned earlier.
 
 ---
@@ -78,5 +80,3 @@ Supported Currencies:
 - EUR
 - BYN
 - RUB
-
-Currency conversion rates are hardcoded.
