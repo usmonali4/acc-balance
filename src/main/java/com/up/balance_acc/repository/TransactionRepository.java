@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
@@ -26,9 +25,4 @@ public class TransactionRepository {
         return Optional.ofNullable(transactions.get(id));
     }
 
-    public List<Transaction> findAllByBalanceName(String balanceName) {
-        return transactions.values().stream()
-            .filter(t -> t.getBalanceName().equals(balanceName))
-            .collect(Collectors.toList());
-    }
 }

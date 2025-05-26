@@ -37,7 +37,7 @@ public class BalanceController {
         return ResponseEntity.ok(balanceService.createBalance(name));
     }
 
-    @PostMapping("/{name}/add/transaction")
+    @PostMapping("/{name}/transaction/add")
     public ResponseEntity<Transaction> addTransaction(@PathVariable String name, @RequestBody TransactionDTO dto) {
         return ResponseEntity.ok(balanceService.addTransaction(name, dto));
     }
@@ -47,7 +47,7 @@ public class BalanceController {
         return ResponseEntity.ok(balanceService.allTransactions(name));
     }
 
-    @PutMapping("/transaction/{id}")
+    @PutMapping("/transaction/{id}/update")
     public ResponseEntity<Transaction> updateTransaction(@PathVariable int id, @RequestBody TransactionDTO dto){
         return ResponseEntity.ok(balanceService.updTransaction(id, dto));
     }
