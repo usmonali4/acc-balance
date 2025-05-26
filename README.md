@@ -16,25 +16,29 @@ API Endpoints:
 
 1. Create Balance
 
-POST /balances/{name}
+`POST /balances/{name}`
 
 Example:
-`curl -X POST http://localhost:8080/balances/main-acc`
+```
+curl -X POST http://localhost:8080/balances/main-acc
+```
 
 ---
 
 2. Get Balance Info
 
-GET /balances/{name}/info
+`GET /balances/{name}/info`
 
 Example:
-`curl http://localhost:8080/balances/main-acc/info`
+```
+curl http://localhost:8080/balances/main-acc/info
+```
 
 ---
 
 3. Add a Transaction
 
-POST /balances/{name}/transaction/add
+`POST /balances/{name}/transaction/add`
 
 Example:
 ```
@@ -50,16 +54,18 @@ curl -X POST http://localhost:8080/balances/main-acc/transaction/add \
 
 4. Get All Transactions
 
-GET /balances/{name}/transactions
+`GET /balances/{name}/transactions`
 
 Example:
-`curl http://localhost:8080/balances/main-acc/transactions`
+```
+curl http://localhost:8080/balances/main-acc/transactions
+```
 
 ---
 
 5. Update a Transaction
 
-PUT /balances/transaction/{id}/update
+`PUT /balances/transaction/{id}/update`
 
 Example:
 ```
